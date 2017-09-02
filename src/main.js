@@ -11,6 +11,10 @@ import 'nprogress/nprogress.css'
 // 引入 全局字体样式
 import "@/assets/font/scss/font-awesome.scss"
 
+// 引入饿了么组件
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-default/index.css'
+Vue.use(ElementUI)
 
 Vue.config.productionTip = false;
 

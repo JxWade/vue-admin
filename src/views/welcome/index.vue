@@ -10,6 +10,9 @@
         <h2>
             <router-link to="/form">form展示模板</router-link>
         </h2>
+        <h2>
+            <router-link to="/login">进入 login登录界面</router-link>
+        </h2>
         <ul>
             <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
             <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
