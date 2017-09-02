@@ -3,13 +3,28 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+// 引入加载进度条
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
 
-Vue.config.productionTip = false
+
+Vue.config.productionTip = false;
+
+
+router.beforeEach((to, from, next) => {
+    NProgress.start();
+    next();
+});
+
+router.afterEach(() => {
+    NProgress.done();
+});
+
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
-  router,
-  template: '<App/>',
-  components: { App }
-})
+    el: '#app',
+    router,
+    template: '<App/>',
+    components: {App}
+});
