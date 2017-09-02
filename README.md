@@ -1,21 +1,7 @@
-# my-project
+# 基于饿了么的 vue 后台
 
-> 基于饿了么的 vue 后台
+## 项目的历史变迁
 
-## Build Setup
+1. [项目的基础搭建](./markdown/1.%20项目的基础搭建.md)
 
-``` bash
-# install dependencies
-npm install
 
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-```
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
