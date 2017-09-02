@@ -2,10 +2,10 @@
     <div class="hello">
         <h1>{{ msg }}</h1>
         <h2>
-            <router-link to="/">进入后台管理</router-link>
+            <router-link to="/"><i class="fa fa-user-circle-o" aria-hidden="true"></i>进入后台管理</router-link>
         </h2>
         <h2>
-            <router-link to="/table">table展示模块</router-link>
+            <router-link to="/table">table展示模块 </router-link>
         </h2>
         <h2>
             <router-link to="/form">form展示模板</router-link>
@@ -40,7 +40,7 @@
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style rel="stylesheet/scss" lang="scss">
     h1, h2 {
         font-weight: normal;
     }

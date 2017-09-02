@@ -3,9 +3,13 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+
 // 引入加载进度条
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
+
+// 引入 全局字体样式
+import "@/assets/font/scss/font-awesome.scss"
 
 
 Vue.config.productionTip = false;
