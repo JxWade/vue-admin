@@ -1,15 +1,17 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Hello from '@/components/Hello'
+// 引入路由模块
+import WelcomeRouter from './modules/welcome_router'
+import TableRouter from './modules/table_router'
+import FormRouter from './modules/form_router'
 
-Vue.use(Router)
+Vue.use(Router);
 
+// 加载路由模块
 export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'Hello',
-      component: Hello
-    }
-  ]
+    routes: [
+        ...WelcomeRouter,
+        ...TableRouter,
+        ...FormRouter
+    ]
 })
