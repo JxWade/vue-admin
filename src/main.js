@@ -11,6 +11,19 @@ import "@/assets/font/scss/font-awesome.scss"
 // 引入饿了么组件
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
+// 字段验证
+import VeeValidate from 'vee-validate';
+
+
+
+const config = {
+    errorBagName: 'errors', // change if property conflicts.
+    delay: 0,
+    messages: null,
+    strict: true
+};
+Vue.use(VeeValidate,config);
+
 
 Vue.use(ElementUI)
 
