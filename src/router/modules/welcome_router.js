@@ -2,7 +2,7 @@ import Welcome from '@/views/welcome'
 
 export default [
     {
-        path: '/welcome',
+        path: '/',
         name: 'welcome',
         component: Welcome
     },
