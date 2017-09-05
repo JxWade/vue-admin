@@ -1,41 +1,55 @@
 <template>
-    <div class="hello">
-        <h1>{{ msg }}</h1>
-        <h2>
-            <router-link to="/">回到首页</router-link>
-        </h2>
-        <router-view></router-view>
+    <div id="page-menu-nav">
+        <div :class="['collapse-image',isCollapse?'isCollapse':'']" @click="clickCollapse">
+            <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+        </div>
+
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
     </div>
 </template>
 
 <script>
     export default {
-        name: 'hello',
+        name: 'page-menu-nav',
+        props: [
+            "isCollapse",
+        ],
         data() {
             return {
-                msg: '我是头部'
+
+            }
+        },
+        methods: {
+            clickCollapse() {
+                this.$emit('changeCollapse', this.isCollapse)
             }
         }
     }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-    h1, h2 {
-        font-weight: normal;
-    }
 
-    ul {
-        list-style-type: none;
-        padding: 0;
-    }
+<style lang="scss">
+    @import "../../style/variables";
 
-    li {
-        display: inline-block;
-        margin: 0 10px;
-    }
+    #page-menu-nav {
+        display: flex;
+        height: 59px;
+        background-color: $page-layout-header-background;
+        color: $page-layout-header-color;
+        border-bottom: 2px solid #ccc;
+        padding: 20px 20px 10px;
 
-    a {
-        color: #42b983;
+        .collapse-image {
+            font-size: 22px;
+            transform: rotate(0deg);
+            transition:transform 0.5s;
+        }
+        .isCollapse {
+            transform: rotate(-90deg);
+            transition:transform 0.5s;
+        }
     }
 </style>

@@ -1,6 +1,6 @@
 <template>
-    <div class="sidebar">
-        <el-menu default-active="1-4-1" class="sidebar-nav" @open="handleOpen" @close="handleClose"
+    <div id="page-sidebar">
+        <el-menu default-active="1-4-1" class="page-sidebar-nav" @open="handleOpen" @close="handleClose"
                  :collapse="isCollapse">
             <h3 class="title-contain">
                 <div>
@@ -40,8 +40,8 @@
 
 <script>
     export default {
-        name: 'sidebar',
-        props:{
+        name: 'page-sidebar',
+        props: {
             isCollapse: false
         },
         data() {
@@ -65,26 +65,26 @@
 
 
 <style lang="scss">
-
-    .sidebar-nav {
+    @import "../../style/variables";
+    .page-sidebar-nav {
         background: white;
         &:not(.el-menu--collapse) {
             width: 200px;
             min-height: 400px;
         }
-        h3.title-contain{
+        h3.title-contain {
             margin: 0;
-            background: #324157;
-            color: #f5f5f5;
+            background: $page-layout-header-background;
+            color: $page-layout-header-color;
+            border-bottom: 2px solid #ccc;
             & > div {
                 padding: 20px 20px 10px;
-                border-bottom: 2px solid #ccc;
                 overflow: hidden;
                 white-space: nowrap;
 
             }
         }
-        .el-menu{
+        .el-menu {
             background-color: #f5f5f5;
         }
     }

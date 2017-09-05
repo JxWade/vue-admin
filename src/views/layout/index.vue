@@ -1,34 +1,45 @@
 <template>
-    <div class="layout">
-            <sidebar class="sidebar"></sidebar>
-        <div class="layout-right">
-            <div class="header">header</div>
+    <div id="page-layout">
+        <page-sidebar :isCollapse="isCollapse"></page-sidebar>
+        <div id="layout-right">
+            <page-menu-nav :isCollapse="isCollapse" @changeCollapse="changeCollapse"></page-menu-nav>
             <div class="container">contain</div>
         </div>
     </div>
 </template>
 
 <script>
-    import Header from './header';
-    import Sidebar from './sidebar';
-
+    import PageMenuNav from './header';
+    import PageSidebar from './sidebar';
 
     export default {
-        name:'layout',
-        components:{Sidebar}
+        name: 'page-layout',
+        data() {
+            return {
+                isCollapse: false
+            }
+        },
+        methods: {
+            changeCollapse(msg) {
+                // 做侧边栏的动画效果
+                this.isCollapse = !msg;
+            }
+        },
+        components: {
+            PageSidebar,
+            PageMenuNav
+        }
     }
 </script>
 
 <style lang="scss">
-    .layout{
+    #page-layout {
         display: flex;
         background: gray;
     }
-    .sidebar{
-        background:tomato;
-    }
-    .layout-right{
-        flex-grow:1;
+
+    #layout-right {
+        flex-grow: 1;
         background: pink;
     }
 </style>
