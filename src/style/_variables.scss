@@ -2,6 +2,11 @@
     系统配色
  */
 
+//系统 头部的背景颜色
+$page-layout-header-background:                #324157 !default;
 
-$page-layout-header-background:                #324157 !default;         //系统 头部的背景颜色
-$page-layout-header-color:                     #f9f9f9 !default;         //系统头部的字体颜色
+
+//系统头部的字体颜色
+$page-layout-header-color:                     #f9f9f9 !default;
+//系统头部的深色字体
+$page-layout-header-darken-color:              darken($page-layout-header-color, 30%) !default;

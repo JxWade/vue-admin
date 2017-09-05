@@ -3,7 +3,8 @@
         <page-sidebar :isCollapse="isCollapse"></page-sidebar>
         <div id="layout-right">
             <page-menu-nav :isCollapse="isCollapse" @changeCollapse="changeCollapse"></page-menu-nav>
-            <div class="container">contain</div>
+            <div class="contai">contain</div>
+            <div class="contar">contain</div>
         </div>
     </div>
 </template>
