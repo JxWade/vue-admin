@@ -7,6 +7,8 @@ import WelcomeRouter from './modules/welcome_router'
 import TableRouter from './modules/table_router'
 import FormRouter from './modules/form_router'
 
+import Layout from '@/views/layout'
+
 Vue.use(Router);
 
 // 加载路由模块
@@ -14,8 +16,15 @@ export default new Router({
     mode: 'history',
     routes: [
         ...SinglePage,
-        ...WelcomeRouter,
-        ...TableRouter,
-        ...FormRouter
+        {
+            path: '/',
+            name: 'layout',
+            component: Layout,
+            child:[
+                ...WelcomeRouter,
+                ...TableRouter,
+                ...FormRouter
+            ]
+        },
     ]
 })
