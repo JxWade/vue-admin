@@ -1,40 +1,132 @@
 <template>
     <div id="page-sidebar">
-        <el-menu default-active="1-4-1" class="page-sidebar-nav" @open="handleOpen" @close="handleClose"
-                 :collapse="isCollapse">
-            <h3 class="title-contain">
-                <div>
-                    <i :class="[sidebarHeader.icon]" aria-hidden="true"></i>
-                    <span v-show="!isCollapse">{{ sidebarHeader.title }}</span>
-                </div>
-            </h3>
-            <el-submenu index="1">
-                <template slot="title">
-                    <i class="el-icon-message"></i>
-                    <span slot="title">导航一</span>
-                </template>
-                <el-menu-item-group>
-                    <span slot="title">分组一</span>
-                    <el-menu-item index="1-1">选项1</el-menu-item>
-                    <el-menu-item index="1-2">选项2</el-menu-item>
-                </el-menu-item-group>
-                <el-menu-item-group title="分组2">
-                    <el-menu-item index="1-3">选项3</el-menu-item>
-                </el-menu-item-group>
-                <el-submenu index="1-4">
-                    <span slot="title">选项4</span>
-                    <el-menu-item index="1-4-1">选项1</el-menu-item>
+        <h3 class="title-contain">
+            <div>
+                <i :class="[sidebarHeader.icon]" aria-hidden="true"></i>
+                <span v-show="!isCollapse">{{ sidebarHeader.title }}</span>
+            </div>
+        </h3>
+        <div :style="{height:clientHeight - 59 +'px',overflow:isCollapse ? 'visible':'scroll'}">
+            <el-menu default-active="1-4-1" class="page-sidebar-nav" @open="handleOpen" @close="handleClose"
+                     :collapse="isCollapse">
+                <el-submenu index="1">
+                    <template slot="title">
+                        <i class="el-icon-message"></i>
+                        <span slot="title">导航一</span>
+                    </template>
+                    <el-menu-item-group>
+                        <span slot="title">分组一</span>
+                        <el-menu-item index="1-1">选项1</el-menu-item>
+                        <el-menu-item index="1-2">选项2</el-menu-item>
+                    </el-menu-item-group>
+                    <el-menu-item-group title="分组2">
+                        <el-menu-item index="1-3">选项3</el-menu-item>
+                    </el-menu-item-group>
+                    <el-submenu index="1-4">
+                        <span slot="title">选项4</span>
+                        <el-menu-item index="1-4-1">选项1</el-menu-item>
+                    </el-submenu>
                 </el-submenu>
-            </el-submenu>
-            <el-menu-item index="2">
-                <i class="el-icon-menu"></i>
-                <span slot="title">导航二</span>
-            </el-menu-item>
-            <el-menu-item index="3">
-                <i class="el-icon-setting"></i>
-                <span slot="title">导航三</span>
-            </el-menu-item>
-        </el-menu>
+                <el-submenu index="1">
+                    <template slot="title">
+                        <i class="el-icon-message"></i>
+                        <span slot="title">导航一</span>
+                    </template>
+                    <el-menu-item-group>
+                        <span slot="title">分组一</span>
+                        <el-menu-item index="1-1">选项1</el-menu-item>
+                        <el-menu-item index="1-2">选项2</el-menu-item>
+                    </el-menu-item-group>
+                    <el-menu-item-group title="分组2">
+                        <el-menu-item index="1-3">选项3</el-menu-item>
+                    </el-menu-item-group>
+                    <el-submenu index="1-4">
+                        <span slot="title">选项4</span>
+                        <el-menu-item index="1-4-1">选项1</el-menu-item>
+                    </el-submenu>
+                </el-submenu>
+                <el-submenu index="1">
+                    <template slot="title">
+                        <i class="el-icon-message"></i>
+                        <span slot="title">导航一</span>
+                    </template>
+                    <el-menu-item-group>
+                        <span slot="title">分组一</span>
+                        <el-menu-item index="1-1">选项1</el-menu-item>
+                        <el-menu-item index="1-2">选项2</el-menu-item>
+                    </el-menu-item-group>
+                    <el-menu-item-group title="分组2">
+                        <el-menu-item index="1-3">选项3</el-menu-item>
+                    </el-menu-item-group>
+                    <el-submenu index="1-4">
+                        <span slot="title">选项4</span>
+                        <el-menu-item index="1-4-1">选项1</el-menu-item>
+                    </el-submenu>
+                </el-submenu>
+                <el-submenu index="1">
+                    <template slot="title">
+                        <i class="el-icon-message"></i>
+                        <span slot="title">导航一</span>
+                    </template>
+                    <el-menu-item-group>
+                        <span slot="title">分组一</span>
+                        <el-menu-item index="1-1">选项1</el-menu-item>
+                        <el-menu-item index="1-2">选项2</el-menu-item>
+                    </el-menu-item-group>
+                    <el-menu-item-group title="分组2">
+                        <el-menu-item index="1-3">选项3</el-menu-item>
+                    </el-menu-item-group>
+                    <el-submenu index="1-4">
+                        <span slot="title">选项4</span>
+                        <el-menu-item index="1-4-1">选项1</el-menu-item>
+                    </el-submenu>
+                </el-submenu>
+                <el-submenu index="1">
+                    <template slot="title">
+                        <i class="el-icon-message"></i>
+                        <span slot="title">导航一</span>
+                    </template>
+                    <el-menu-item-group>
+                        <span slot="title">分组一</span>
+                        <el-menu-item index="1-1">选项1</el-menu-item>
+                        <el-menu-item index="1-2">选项2</el-menu-item>
+                    </el-menu-item-group>
+                    <el-menu-item-group title="分组2">
+                        <el-menu-item index="1-3">选项3</el-menu-item>
+                    </el-menu-item-group>
+                    <el-submenu index="1-4">
+                        <span slot="title">选项4</span>
+                        <el-menu-item index="1-4-1">选项1</el-menu-item>
+                    </el-submenu>
+                </el-submenu>
+                <el-submenu index="1">
+                    <template slot="title">
+                        <i class="el-icon-message"></i>
+                        <span slot="title">导航一</span>
+                    </template>
+                    <el-menu-item-group>
+                        <span slot="title">分组一</span>
+                        <el-menu-item index="1-1">选项1</el-menu-item>
+                        <el-menu-item index="1-2">选项2</el-menu-item>
+                    </el-menu-item-group>
+                    <el-menu-item-group title="分组2">
+                        <el-menu-item index="1-3">选项3</el-menu-item>
+                    </el-menu-item-group>
+                    <el-submenu index="1-4">
+                        <span slot="title">选项4</span>
+                        <el-menu-item index="1-4-1">选项1</el-menu-item>
+                    </el-submenu>
+                </el-submenu>
+                <el-menu-item index="2">
+                    <i class="el-icon-menu"></i>
+                    <span slot="title">导航二</span>
+                </el-menu-item>
+                <el-menu-item index="3">
+                    <i class="el-icon-setting"></i>
+                    <span slot="title">导航三</span>
+                </el-menu-item>
+            </el-menu>
+        </div>
     </div>
 </template>
 
@@ -42,7 +134,8 @@
     export default {
         name: 'page-sidebar',
         props: {
-            isCollapse: false
+            isCollapse: false,
+            clientHeight: null,
         },
         data() {
             return {
@@ -66,12 +159,8 @@
 
 <style lang="scss">
     @import "../../style/variables";
-    .page-sidebar-nav {
-        background: white;
-        &:not(.el-menu--collapse) {
-            width: 200px;
-            min-height: 400px;
-        }
+
+    #page-sidebar {
         h3.title-contain {
             margin: 0;
             background: $page-layout-header-background;
@@ -84,8 +173,19 @@
 
             }
         }
-        .el-menu {
-            background-color: #f5f5f5;
+        & > div {
+            .page-sidebar-nav {
+                background: white;
+                &:not(.el-menu--collapse) {
+                    width: 200px;
+                }
+                &.el-menu--collapse {
+                    width: 64px;
+                }
+                .el-menu {
+                    background-color: #f5f5f5;
+                }
+            }
         }
     }
 </style>
