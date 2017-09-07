@@ -2,38 +2,43 @@
     <div class="login" :style="{height:clientHeight}">
         <div class="box">
             <div class="item">
-                <div class="panel panel-success">
-                    <div class="panel-heading">
-                        <h1 class="panel-title">{{title}}</h1>
-                    </div>
-                    <div class="panel-body">
-                        <form>
-                            <bootstrap-validator :validate="validator.username" :validateError="errors" inputName="username">
-                                <label>账号：</label>
-                                <input type="text" v-validate="validator.username" name="username" class="form-control"
-                                       placeholder="请输入邮箱或手机">
-                            </bootstrap-validator>
-
-                            <bootstrap-validator :validate="validator.password" :validateError="errors"
-                                                 inputName="password">
-                                <label>密码：</label>
-                                <input type="password" v-validate="validator.password" name="password"
-                                       class="form-control" placeholder="请输入密码">
-                            </bootstrap-validator>
-
-                            <bootstrap-validator :validate="validator.yzm" :validateError="errors" inputName="yzm">
-                                <label>验证码：</label>
-                                <div class="yzm">
-                                    <input type="text" class="form-control" v-validate="validator.yzm" name="yzm"
-                                           placeholder="请输入验证码">
-                                    <img src="/static/images/yzm.png" width="120" height="34" alt="">
-                                </div>
-                            </bootstrap-validator>
-
-                            <button type="submit" class="btn btn-success" @click.prevent="formSubmit">登 录</button>
-                        </form>
-                    </div>
+                <div class="page-header">
+                    <h1>Management System<br><small>By VUE</small></h1>
                 </div>
+                <form class="form-horizontal">
+                    <bootstrap-validator :validate="validator.username" :validateError="errors" inputName="username">
+                        <label class="col-sm-3 control-label">账号：</label>
+                        <div class="col-sm-9">
+                            <input type="text" v-validate="validator.username" name="username" class="form-control"
+                                   placeholder="请输入邮箱或手机">
+                        </div>
+                    </bootstrap-validator>
+
+                    <bootstrap-validator :validate="validator.password" :validateError="errors"
+                                         inputName="password">
+                        <label class="col-sm-3 control-label">密码：</label>
+                        <div class="col-sm-9">
+                            <input type="password" v-validate="validator.password" name="password"
+                                   class="form-control" placeholder="请输入密码">
+                        </div>
+                    </bootstrap-validator>
+                    <bootstrap-validator :validate="validator.yzm" :validateError="errors" inputName="yzm">
+                        <label class="col-sm-3 control-label">验证码：</label>
+                        <div class="yzm col-sm-9">
+                            <input type="text" class="form-control" v-validate="validator.yzm" name="yzm"
+                                   placeholder="请输入验证码">
+                            <img src="/static/images/yzm.png" width="120" height="34" alt="">
+                        </div>
+                    </bootstrap-validator>
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-3 col-sm-9">
+                            <button type="submit" class="btn btn-success" @click.prevent="formSubmit">
+                                <i class="el-icon-loading pull-left" style="position: relative;top:3px;left: 10px;"></i>登 录
+                            </button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -107,24 +112,17 @@
         width: 400px;
     }
 
-    .panel-heading h1 {
-        font-size: 24px;
-    }
-
-    .panel-body {
-        padding: 20px 40px;
-        form {
-            .yzm {
-                display: flex;
-                img {
-                    padding-left: 20px;
-                    flex-shrink: 0;
-                }
+    form {
+        .yzm {
+            display: flex;
+            img {
+                padding-left: 20px;
+                flex-shrink: 0;
             }
-            button {
-                width: 100%;
-                margin-bottom: 20px;
-            }
+        }
+        button {
+            width: 100%;
+            margin-bottom: 20px;
         }
     }
 </style>
