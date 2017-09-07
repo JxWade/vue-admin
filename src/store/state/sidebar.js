@@ -3,41 +3,47 @@ let sidebar = [
     {
         title: {
             name: '简述',
-            icon: 'fa fa-book'
+            icon: 'fa fa-book',
+            url: '/123'
         }
     }, {
         title: {
             name: '项目构建',
-            icon: 'fa fa-book'
+            icon: 'fa-book'
         },
-        item:[
-            {
-                name:"构建的基本原理",
-                icon: 'fa fa-book',
-                url:'/goujianyuanli'
-            },
-            {
-                name:"使用的组件",
-                icon: 'fa fa-book',
-                url:"/123123"
-            }
-        ],
-        item_grop:[
+        item_groups: [
             {
                 title: {
                     name: '项目构建111',
                     icon: 'fa fa-book'
                 },
-                item:[
+                items: [
                     {
-                        name:"构建的基本原理2222",
+                        name: "构建的基本原理111",
                         icon: 'fa fa-book',
-                        url:'/goujianyuanli'
+                        url: '/goujianyuanli'
                     },
                     {
-                        name:"使用的组件2222",
+                        name: "使用的组件1`111",
                         icon: 'fa fa-book',
-                        url:"/1213"
+                        url: "/1213"
+                    }
+                ],
+            }, {
+                title: {
+                    name: '项目构建222',
+                    icon: 'fa fa-book'
+                },
+                items: [
+                    {
+                        name: "构建的基本原理2222",
+                        icon: 'fa fa-book',
+                        url: '/goujianyuanli'
+                    },
+                    {
+                        name: "使用的组件2222",
+                        icon: 'fa fa-book',
+                        url: "/1213"
                     }
                 ],
             }
@@ -45,22 +51,38 @@ let sidebar = [
     }, {
         title: {
             name: '组件',
-            icon: 'fa fa-book'
-        }
-    },{
+            icon: 'fa fa-book',
+            url: '/123'
+        },
+        items: [
+            {
+                name: "构建的基本原理2222",
+                icon: 'fa fa-book',
+                url: '/goujianyuanli'
+            },
+            {
+                name: "使用的组件2222",
+                icon: 'fa fa-book',
+                url: "/1213"
+            }
+        ],
+    }, {
         title: {
             name: '图形',
-            icon: 'fa fa-book'
+            icon: 'fa fa-book',
+            url: '/123'
         }
-    },{
+    }, {
         title: {
             name: '错误页面',
-            icon: 'fa fa-book'
+            icon: 'fa fa-book',
+            url: '/123'
         }
-    },{
+    }, {
         title: {
             name: '换肤',
-            icon: 'fa fa-book'
+            icon: 'fa fa-book',
+            url: '/123'
         }
     }
 ];

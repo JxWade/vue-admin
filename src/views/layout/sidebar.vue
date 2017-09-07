@@ -7,40 +7,67 @@
             </div>
         </h3>
         <div :style="{height:clientHeight - 59 +'px',overflow:isCollapse ? 'visible':'scroll'}">
-            <el-menu default-active="1-4-1" class="page-sidebar-nav" @open="handleOpen" @close="handleClose"
+            <el-menu class="page-sidebar-nav" @open="handleOpen" @close="handleClose"
                      :collapse="isCollapse">
-                <el-submenu index="1">
-                    <template slot="title">
-                        <i class="el-icon-message"></i>
-                        <span slot="title">导航一</span>
+                <template v-for="(item,index) in getSidebarInfo">
+
+                    <!--一级导航没有子导航-->
+                    <template v-if="(item.items == undefined)  && (item.item_groups == undefined)">
+                        <el-menu-item :index="index.toString()">
+                            <i :class="[item.title.icon]" aria-hidden="true"></i>&nbsp;&nbsp;
+                            <span slot="title">{{item.title.name}}</span>
+                        </el-menu-item>
                     </template>
-                    <el-menu-item-group>
-                        <span slot="title">分组一</span>
-                        <el-menu-item index="1-1">选项1</el-menu-item>
-                        <el-menu-item index="1-2">选项2</el-menu-item>
-                    </el-menu-item-group>
-                    <el-menu-item-group title="分组2">
-                        <el-menu-item index="1-3">选项3</el-menu-item>
-                    </el-menu-item-group>
-                    <el-submenu index="1-4">
-                        <span slot="title">选项4</span>
-                        <el-menu-item index="1-4-1">选项1</el-menu-item>
-                    </el-submenu>
-                </el-submenu>
-                <el-menu-item index="2">
-                    <i class="el-icon-menu"></i>
-                    <span slot="title">导航二</span>
-                </el-menu-item>
-                <el-menu-item index="3">
-                    <i class="el-icon-setting"></i>
-                    <span slot="title">导航三</span>
-                </el-menu-item>
+
+                    <!--一级导航有子导航-->
+                    <template v-else>
+                        <el-submenu :index="index.toString()">
+                            <!--标题-->
+                            <template slot="title">
+                                <i :class="[item.title.icon]" aria-hidden="true"></i>&nbsp;&nbsp;
+                                <span slot="title">{{item.title.name}}</span>
+                            </template>
+
+                            <!--子导航有孙子导航-->
+                            <template v-if="item.item_groups != undefined">
+                                <template v-for="(value,key) in item.item_groups">
+                                    <el-menu-item-group>
+                                        <span slot="title">
+                                            <i :class="[value.title.icon]" aria-hidden="true"></i>&nbsp;&nbsp;
+                                            <span>{{value.title.name}}</span>
+                                        </span>
+                                        <template v-for="(child,ck) in value.items">
+                                            <el-menu-item :index="index+'-'+key+'-'+ck">
+                                                <i :class="[child.icon]" aria-hidden="true"></i>&nbsp;&nbsp;
+                                                <span>{{child.name}}</span>
+                                            </el-menu-item>
+                                        </template>
+                                    </el-menu-item-group>
+                                </template>
+                            </template>
+
+                            <!--遍历子导航-->
+                            <template v-if="item.items != undefined">
+                                <template v-for="(value,key) in item.items">
+                                    <el-menu-item :index="index+'-'+key">
+                                        <i :class="[value.icon]" aria-hidden="true"></i>&nbsp;&nbsp;
+                                        <span>{{value.name}}</span>
+                                    </el-menu-item>
+                                </template>
+                            </template>
+
+                        </el-submenu>
+
+                    </template>
+                </template>
             </el-menu>
         </div>
     </div>
 </template>
 
 <script>
+    import {mapGetters} from 'vuex'
+
     export default {
         name: 'page-sidebar',
         props: {
@@ -55,9 +82,11 @@
                 },
             };
         },
-        computed:mapState({
-            
-        }),
+        computed: {
+            ...mapGetters([
+                'getSidebarInfo',
+            ])
+        },
         methods: {
             handleOpen(key, keyPath) {
                 console.log(key, keyPath);

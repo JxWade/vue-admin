@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 
 import sidebarState from './state/sidebar'
+import sidebarGetters from './getters/sidebar'
 
 Vue.use(Vuex);
 
@@ -13,7 +14,9 @@ const store = new Vuex.Store({
         sidebarState: sidebarState
     },
     modules: {},
-    getters: {}
+    getters: {
+        ...sidebarGetters
+    }
 });
 
 export default store
