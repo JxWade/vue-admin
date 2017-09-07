@@ -9,9 +9,10 @@
                 <!--页面的背景-->
                 <img src="/static/images/layout-background.jpg" alt="">
                 <!--页面的内容区域-->
-                <div :style="{width:clientWidth -200 +'px',height:clientHeight - 59 +'px'}">
-                    <div>1231323131123131123131123131</div>
-
+                <div :style="{width:clientWidth -200 +'px',height:clientHeight - 59 +'px',padding:'20px'}">
+                    <div>
+                        <router-view></router-view>
+                    </div>
                 </div>
             </div>
         </div>
@@ -59,30 +60,31 @@
     #page-layout {
         display: flex;
         background: white;
+
+        #layout-right {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            background: #eee;
+
+            #page-layout-contain {
+                flex-grow: 1;
+                position: relative;
+                img {
+                    position: absolute;
+                    width: 100%;
+                    Height: 100%;
+                    z-index: 1;
+                    opacity: 0.3;
+                }
+                & > div {
+                    flex-grow: 0;
+                    position: relative;
+                    z-index: 2;
+                    overflow: scroll;
+                }
+            }
+        }
     }
 
-    #layout-right {
-        flex-grow: 1;
-        display: flex;
-        flex-direction: column;
-        background: #eee;
-    }
-
-    #page-layout-contain {
-        flex-grow: 1;
-        position: relative;
-        img {
-            position: absolute;
-            width: 100%;
-            Height: 100%;
-            z-index: 1;
-            opacity: 0.3;
-        }
-        & > div {
-            flex-grow: 0;
-            position: relative;
-            z-index: 2;
-            overflow: scroll;
-        }
-    }
 </style>

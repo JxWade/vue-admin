@@ -3,7 +3,7 @@ import Router from 'vue-router'
 // 引入单一页面
 import SinglePage from './modules/single_page'
 // 引入复合页面
-import WelcomeRouter from './modules/welcome_router'
+import IndexRouter from './modules/index_router'
 import TableRouter from './modules/table_router'
 import FormRouter from './modules/form_router'
 
@@ -20,8 +20,8 @@ export default new Router({
             path: '/',
             name: 'layout',
             component: Layout,
-            child:[
-                ...WelcomeRouter,
+            children:[
+                ...IndexRouter,
                 ...TableRouter,
                 ...FormRouter
             ]
