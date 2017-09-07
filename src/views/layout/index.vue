@@ -10,15 +10,12 @@
                 <img src="/static/images/layout-background.jpg" alt="">
                 <!--页面的内容区域-->
                 <div :style="{width:clientWidth -200 +'px',height:clientHeight - 59 +'px',padding:'20px'}">
-                    <div>
-                        <router-view></router-view>
-                    </div>
+                    <router-view></router-view>
                 </div>
             </div>
         </div>
     </div>
 </template>
-
 <script>
     import PageMenuNav from './header';
     import PageSidebar from './sidebar';

@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import store from './store'
 // 引入加载进度条
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
@@ -44,6 +45,7 @@ router.afterEach(() => {
 new Vue({
     el: '#app',
     router,
+    store,
     template: '<App/>',
     components: {App}
 });

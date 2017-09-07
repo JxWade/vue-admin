@@ -55,6 +55,9 @@
                 },
             };
         },
+        computed:mapState({
+            
+        }),
         methods: {
             handleOpen(key, keyPath) {
                 console.log(key, keyPath);

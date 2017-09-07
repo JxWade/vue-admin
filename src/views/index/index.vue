@@ -21,6 +21,9 @@
             return {
                 msg: '欢迎来到 vue 后台管理'
             }
+        },
+        mounted(){
+            console.log(this.$store.getters.sidebar_config123)
         }
     }
 </script>
