@@ -8,41 +8,41 @@ let sidebar = [
         }
     }, {
         title: {
-            name: '项目构建',
-            icon: 'fa fa-book'
+            name: '全局样式',
+            icon: 'fa fa-align-right'
         },
         item_groups: [
             {
                 title: {
-                    name: '项目构建111',
-                    icon: 'fa fa-book'
+                    name: '字体样式',
+                    icon: 'fa fa-font'
                 },
                 items: [
                     {
-                        name: "构建的基本原理111",
-                        icon: 'fa fa-book',
+                        name: "element字体",
                         url: '/'
-                    },
-                    {
-                        name: "使用的组件1`111",
-                        icon: 'fa fa-book',
+                    }, {
+                        name: "font Awesome",
+                        icon: '',
+                        url: "/"
+                    },{
+                        name: "bootstrap font",
+                        icon: 'fa fa-bold',
                         url: "/"
                     }
                 ],
             }, {
                 title: {
-                    name: '项目构建222',
-                    icon: 'fa fa-book'
+                    name: '全局样式',
+                    icon: 'fa fa-image'
                 },
                 items: [
                     {
-                        name: "构建的基本原理2222",
-                        icon: 'fa fa-book',
+                        name: "element 全局样式",
                         url: '/'
                     },
                     {
-                        name: "使用的组件2222",
-                        icon: 'fa fa-book',
+                        name: "bootstrap 样式",
                         url: "/"
                     }
                 ],
@@ -50,19 +50,17 @@ let sidebar = [
         ]
     }, {
         title: {
-            name: '组件',
-            icon: 'fa fa-book',
+            name: '自定义组件',
+            icon: 'fa fa-align-center',
             url: '/'
         },
         items: [
             {
-                name: "构建的基本原理2222",
-                icon: 'fa fa-book',
+                name: "列表页",
                 url: '/'
             },
             {
-                name: "使用的组件2222",
-                icon: 'fa fa-book',
+                name: "详情页",
                 url: "/"
             }
         ],
