@@ -4,7 +4,7 @@ let sidebar = [
         title: {
             name: '简述',
             icon: 'fa fa-book',
-            url: '/'
+            url: '/index',
         }
     }, {
         title: {
@@ -68,19 +68,19 @@ let sidebar = [
         title: {
             name: '图形',
             icon: 'fa fa-book',
-            url: '/'
+            url: ''
         }
     }, {
         title: {
             name: '错误页面',
             icon: 'fa fa-book',
-            url: '/errorpage'
+            url: 'errorpage'
         }
     }, {
         title: {
             name: '换肤',
             icon: 'fa fa-book',
-            url: '/skin'
+            url: 'skin'
         }
     }
 ];

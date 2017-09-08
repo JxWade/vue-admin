@@ -26,7 +26,6 @@
                 <p> <i> 下面来看看具体的使用...</i></p>
             </div>
         </div>
-
     </div>
 </template>
 
@@ -35,11 +34,9 @@
         name: 'hello',
         data() {
             return {
-
             }
         },
         mounted(){
-
         }
     }
 </script>

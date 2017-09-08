@@ -8,7 +8,7 @@
         </h3>
         <div :style="{height:clientHeight - 59 +'px',overflow:isCollapse ? 'visible':'scroll'}">
             <el-menu class="page-sidebar-nav" @open="handleOpen" @close="handleClose"
-                     :collapse="isCollapse">
+                     :collapse="isCollapse" :unique-opened="true">
                 <template v-for="(item,index) in getSidebarInfo">
 
                     <!--一级导航没有子导航-->
@@ -31,7 +31,7 @@
                             <!--子导航有孙子导航-->
                             <template v-if="item.item_groups != undefined">
                                 <template v-for="(value,key) in item.item_groups">
-                                    <el-menu-item-group>
+                                    <el-submenu :index="index+'-'+key">
                                         <span slot="title">
                                             <i :class="[value.title.icon]" aria-hidden="true"></i>&nbsp;&nbsp;
                                             <span>{{value.title.name}}</span>
@@ -43,7 +43,7 @@
                                                 <span>{{child.name}}</span>
                                             </el-menu-item>
                                         </template>
-                                    </el-menu-item-group>
+                                    </el-submenu>
                                 </template>
                             </template>
 
@@ -89,10 +89,10 @@
         },
         methods: {
             handleOpen(key, keyPath) {
-                console.log(key, keyPath);
+                //console.log(key, keyPath);
             },
             handleClose(key, keyPath) {
-                console.log(key, keyPath);
+                //console.log(key, keyPath);
             },
             routePush(url) {
                 this.$router.push(url);

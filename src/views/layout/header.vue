@@ -30,7 +30,8 @@
                         <span><i class="fa fa-cog" aria-hidden="true"></i> Settings</span>
                     </el-dropdown-item>
                     <el-dropdown-item>
-                        <span><i class="fa fa-bell" aria-hidden="true"></i> messages &nbsp;&nbsp;&nbsp; <span class="badge">12</span></span>
+                        <span><i class="fa fa-bell" aria-hidden="true"></i> messages &nbsp;&nbsp;&nbsp; <span
+                                class="badge">12</span></span>
                     </el-dropdown-item>
                     <el-dropdown-item>
                         <span><i class="fa fa-share" aria-hidden="true"></i> logout</span>
@@ -68,11 +69,35 @@
                 }]
             }
         },
+        watch: {
+            '$route': 'getSidebarByUrl',
+        },
         methods: {
             clickCollapse() {
                 this.$emit('changeCollapse', this.isCollapse)
+            },
+            getSidebarByUrl() {
+                let path = this.$route.path;
+                let sidebarInfo = this.$store.state.sidebarState;
+
+                for (let item in sidebarInfo) {
+                    let temPath = sidebarInfo[item].title.url;
+
+                    if(temPath != undefined){
+                        temPath = temPath[0] != '/'? '/'+temPath : temPath;
+
+                        if(temPath == path){
+
+                            console.log({first:sidebarInfo[item].title.name});
+                            return {first:sidebarInfo[item].title.name};
+                        }
+                    }
+
+
+                }
+               // console.log(path);
             }
-        }
+        },
     }
 </script>
 
