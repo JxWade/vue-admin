@@ -13,7 +13,7 @@
 
                     <!--一级导航没有子导航-->
                     <template v-if="(item.items == undefined)  && (item.item_groups == undefined)">
-                        <el-menu-item :index="index.toString()">
+                        <el-menu-item :index="index.toString()" @click="routePush(item.title.url)">
                             <i :class="[item.title.icon]" aria-hidden="true"></i>&nbsp;&nbsp;
                             <span slot="title">{{item.title.name}}</span>
                         </el-menu-item>
@@ -37,7 +37,8 @@
                                             <span>{{value.title.name}}</span>
                                         </span>
                                         <template v-for="(child,ck) in value.items">
-                                            <el-menu-item :index="index+'-'+key+'-'+ck">
+                                            <el-menu-item :index="index+'-'+key+'-'+ck"
+                                                          @click="routePush(child.url)">
                                                 <i :class="[child.icon]" aria-hidden="true"></i>&nbsp;&nbsp;
                                                 <span>{{child.name}}</span>
                                             </el-menu-item>
@@ -49,13 +50,12 @@
                             <!--遍历子导航-->
                             <template v-if="item.items != undefined">
                                 <template v-for="(value,key) in item.items">
-                                    <el-menu-item :index="index+'-'+key">
+                                    <el-menu-item :index="index+'-'+key" @click="routePush(value.url)">
                                         <i :class="[value.icon]" aria-hidden="true"></i>&nbsp;&nbsp;
                                         <span>{{value.name}}</span>
                                     </el-menu-item>
                                 </template>
                             </template>
-
                         </el-submenu>
 
                     </template>
@@ -93,6 +93,9 @@
             },
             handleClose(key, keyPath) {
                 console.log(key, keyPath);
+            },
+            routePush(url) {
+                this.$router.push(url);
             }
         }
     }

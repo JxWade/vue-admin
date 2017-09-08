@@ -34,6 +34,9 @@ Vue.config.productionTip = false;
 router.beforeEach((to, from, next) => {
     NProgress.start();
     next();
+    // 跳转到index页面
+    if(to.path == '/')
+        next('/index');
 });
 
 router.afterEach(() => {

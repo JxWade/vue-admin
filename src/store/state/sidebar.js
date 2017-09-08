@@ -4,12 +4,12 @@ let sidebar = [
         title: {
             name: '简述',
             icon: 'fa fa-book',
-            url: '/123'
+            url: '/'
         }
     }, {
         title: {
             name: '项目构建',
-            icon: 'fa-book'
+            icon: 'fa fa-book'
         },
         item_groups: [
             {
@@ -21,12 +21,12 @@ let sidebar = [
                     {
                         name: "构建的基本原理111",
                         icon: 'fa fa-book',
-                        url: '/goujianyuanli'
+                        url: '/'
                     },
                     {
                         name: "使用的组件1`111",
                         icon: 'fa fa-book',
-                        url: "/1213"
+                        url: "/"
                     }
                 ],
             }, {
@@ -38,12 +38,12 @@ let sidebar = [
                     {
                         name: "构建的基本原理2222",
                         icon: 'fa fa-book',
-                        url: '/goujianyuanli'
+                        url: '/'
                     },
                     {
                         name: "使用的组件2222",
                         icon: 'fa fa-book',
-                        url: "/1213"
+                        url: "/"
                     }
                 ],
             }
@@ -52,37 +52,37 @@ let sidebar = [
         title: {
             name: '组件',
             icon: 'fa fa-book',
-            url: '/123'
+            url: '/'
         },
         items: [
             {
                 name: "构建的基本原理2222",
                 icon: 'fa fa-book',
-                url: '/goujianyuanli'
+                url: '/'
             },
             {
                 name: "使用的组件2222",
                 icon: 'fa fa-book',
-                url: "/1213"
+                url: "/"
             }
         ],
     }, {
         title: {
             name: '图形',
             icon: 'fa fa-book',
-            url: '/123'
+            url: '/'
         }
     }, {
         title: {
             name: '错误页面',
             icon: 'fa fa-book',
-            url: '/123'
+            url: '/errorpage'
         }
     }, {
         title: {
             name: '换肤',
             icon: 'fa fa-book',
-            url: '/123'
+            url: '/skin'
         }
     }
 ];

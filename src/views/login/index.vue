@@ -3,10 +3,13 @@
         <div class="box">
             <div class="item">
                 <div class="page-header">
-                    <h1>Management System<br><small>By VUE</small></h1>
+                    <h1>Management System<br>
+                        <small>By VUE</small>
+                    </h1>
                 </div>
                 <form class="form-horizontal">
-                    <bootstrap-validator :validate="validator.username" :validateError="errors" inputName="username">
+                    <bootstrap-validator :validate="validator.username" :validateError="errors" inputName="username"
+                                         colSmOffset="3">
                         <label class="col-sm-3 control-label">账号：</label>
                         <div class="col-sm-9">
                             <input type="text" v-validate="validator.username" name="username" class="form-control"
@@ -14,15 +17,16 @@
                         </div>
                     </bootstrap-validator>
 
-                    <bootstrap-validator :validate="validator.password" :validateError="errors"
-                                         inputName="password">
+                    <bootstrap-validator :validate="validator.password" :validateError="errors" inputName="password"
+                                         colSmOffset="3">
                         <label class="col-sm-3 control-label">密码：</label>
                         <div class="col-sm-9">
                             <input type="password" v-validate="validator.password" name="password"
                                    class="form-control" placeholder="请输入密码">
                         </div>
                     </bootstrap-validator>
-                    <bootstrap-validator :validate="validator.yzm" :validateError="errors" inputName="yzm">
+                    <bootstrap-validator :validate="validator.yzm" :validateError="errors" inputName="yzm"
+                                         colSmOffset="3">
                         <label class="col-sm-3 control-label">验证码：</label>
                         <div class="yzm col-sm-9">
                             <input type="text" class="form-control" v-validate="validator.yzm" name="yzm"

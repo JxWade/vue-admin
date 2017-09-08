@@ -1,20 +1,26 @@
 <template>
     <div :class='["form-group", "bootstrap-validator",(validateError.has(inputName))?"has-error":""]'>
         <slot></slot>
-        <span v-show="validateError.has(inputName)"
-              class="help text-danger"> {{ displayError(inputName)}}
-        </span>
+        <div :class="[colSmOffsetClass]">
+            <span v-show="validateError.has(inputName)" class="help text-danger"> {{ displayError(inputName)}}</span>
+        </div>
     </div>
 </template>
 
 <script>
     export default {
         name: "bootstrap-validator",
-        props: [
-            "validate",
-            "validateError",
-            "inputName"
-        ],
+        props: {
+            validate: null,          // 未配置则使用系统默认的错误提示
+            validateError: null,     // 报错对象
+            inputName: null,         // 监控的字段名
+            colSmOffset: 0,          // 偏移量
+        },
+        computed: {
+            colSmOffsetClass() {
+                return "col-sm-offset-" + this.colSmOffset + ' col-sm-' + (12 - this.colSmOffset);
+            }
+        },
         methods: {
             /**
              * 循环遍历 找到对应的错误信息(如果未配置则显示默认的错误信息)
