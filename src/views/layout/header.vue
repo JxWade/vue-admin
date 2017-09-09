@@ -9,9 +9,9 @@
             <!--面包屑-->
             <div class="breadcrumb-container">
                 <ol class="breadcrumb">
-                    <li><a href="#">首页</a></li>
-                    <li><a href="#">Library</a></li>
-                    <li class="active"><a href="#">Data</a></li>
+                    <li>{{ breadcrumbDetail[0].name }}</li>
+                    <li v-if="breadcrumbDetail[1] != undefined">{{ breadcrumbDetail[1].name }}</li>
+                    <li v-if="breadcrumbDetail[2] != undefined">{{ breadcrumbDetail[2].name }}</li>
                 </ol>
             </div>
         </div>
@@ -45,59 +45,40 @@
 <script>
     export default {
         name: 'page-menu-nav',
-        props: [
-            "isCollapse",
-        ],
-        data() {
-            return {
-                gridData: [{
-                    date: '2016-05-02',
-                    name: '王小虎',
-                    address: '上海市普陀区金沙江路 1518 弄'
-                }, {
-                    date: '2016-05-04',
-                    name: '王小虎',
-                    address: '上海市普陀区金沙江路 1518 弄'
-                }, {
-                    date: '2016-05-01',
-                    name: '王小虎',
-                    address: '上海市普陀区金沙江路 1518 弄'
-                }, {
-                    date: '2016-05-03',
-                    name: '王小虎',
-                    address: '上海市普陀区金沙江路 1518 弄'
-                }]
-            }
+        props: {
+            isCollapse: false,
+            breadcrumbInfo: null,
         },
-        watch: {
-            '$route': 'getSidebarByUrl',
+        data() {
+            return {}
+        },
+        computed: {
+            /**
+             *  获取面包屑的详细信息
+             * @returns {Array}
+             */
+            breadcrumbDetail() {
+                let sidebar = this.$store.state.sidebarState;
+                let breadcrumb = [];
+
+                breadcrumb[0] = sidebar[this.breadcrumbInfo[0]].title;
+
+                if (this.breadcrumbInfo[2] != undefined) {
+                    breadcrumb[1] = sidebar[this.breadcrumbInfo[0]].item_groups[this.breadcrumbInfo[1]].title;
+                    breadcrumb[2] = sidebar[this.breadcrumbInfo[0]].item_groups[this.breadcrumbInfo[1]].items[this.breadcrumbInfo[2]];
+                } else if (this.breadcrumbInfo[1] != undefined) {
+                    breadcrumb[1] = sidebar[this.breadcrumbInfo[0]].items[this.breadcrumbInfo[1]];
+                }
+
+                return breadcrumb;
+            }
         },
         methods: {
             clickCollapse() {
                 this.$emit('changeCollapse', this.isCollapse)
             },
-            getSidebarByUrl() {
-                let path = this.$route.path;
-                let sidebarInfo = this.$store.state.sidebarState;
 
-                for (let item in sidebarInfo) {
-                    let temPath = sidebarInfo[item].title.url;
-
-                    if(temPath != undefined){
-                        temPath = temPath[0] != '/'? '/'+temPath : temPath;
-
-                        if(temPath == path){
-
-                            console.log({first:sidebarInfo[item].title.name});
-                            return {first:sidebarInfo[item].title.name};
-                        }
-                    }
-
-
-                }
-               // console.log(path);
-            }
-        },
+        }
     }
 </script>
 

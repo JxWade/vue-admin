@@ -4,8 +4,10 @@ import Router from 'vue-router'
 import SinglePage from './modules/single_page'
 // 引入复合页面
 import IndexRouter from './modules/index_router'
-import TableRouter from './modules/table_router'
-import FormRouter from './modules/form_router'
+import CoreRouter from './modules/core_router'
+import ComponentRouter from './modules/component_router'
+import GraphRouter from './modules/graph_router'
+import SkinRouter from './modules/skin_router'
 
 import Layout from '@/views/layout'
 
@@ -22,8 +24,10 @@ export default new Router({
             component: Layout,
             children:[
                 ...IndexRouter,
-                ...TableRouter,
-                ...FormRouter
+                ...CoreRouter,
+                ...ComponentRouter,
+                ...GraphRouter,
+                ...SkinRouter,
             ]
         },
     ]

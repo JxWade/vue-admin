@@ -1,10 +1,12 @@
 <template>
     <div id="page-layout">
         <!--侧边导航区-->
-        <page-sidebar :isCollapse="isCollapse" :clientHeight="clientHeight"></page-sidebar>
+        <page-sidebar :isCollapse="isCollapse" :clientHeight="clientHeight"
+                      @getBreadcrumbInfo="getBreadcrumbInfo"></page-sidebar>
         <div id="layout-right">
             <!--页面的头部-->
-            <page-menu-nav :isCollapse="isCollapse" @changeCollapse="changeCollapse"></page-menu-nav>
+            <page-menu-nav :isCollapse="isCollapse" @changeCollapse="changeCollapse"
+                           :breadcrumbInfo="breadcrumbInfo"></page-menu-nav>
             <div id="page-layout-contain">
                 <!--页面的背景-->
                 <img src="/static/images/layout-background.jpg" alt="">
@@ -27,13 +29,20 @@
                 isCollapse: false,
                 clientWidth: null,
                 clientHeight: null,
+                breadcrumbInfo: [0],
             }
         },
         methods: {
             changeCollapse(msg) {
                 // 做侧边栏的动画效果
                 this.isCollapse = !msg;
+            },
+            // 获取面包屑信息
+            getBreadcrumbInfo(index) {
+
+                this.breadcrumbInfo = index.split("-");
             }
+
         },
         mounted() {
             // 首先在Virtual DOM渲染数据时，设置窗口大小．

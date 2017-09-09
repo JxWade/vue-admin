@@ -7,7 +7,7 @@
             </div>
         </h3>
         <div :style="{height:clientHeight - 59 +'px',overflow:isCollapse ? 'visible':'scroll'}">
-            <el-menu class="page-sidebar-nav" @open="handleOpen" @close="handleClose"
+            <el-menu class="page-sidebar-nav" @open="handleOpen" @close="handleClose" @select="handleSelect"
                      :collapse="isCollapse" :unique-opened="true">
                 <template v-for="(item,index) in getSidebarInfo">
 
@@ -96,6 +96,9 @@
             },
             routePush(url) {
                 this.$router.push(url);
+            },
+            handleSelect(index){
+                this.$emit("getBreadcrumbInfo",index);
             }
         }
     }
@@ -115,7 +118,6 @@
                 padding: 20px 20px 10px;
                 overflow: hidden;
                 white-space: nowrap;
-
             }
         }
         & > div {
