@@ -1,5 +1,5 @@
 <template>
-    <div class="login" :style="{height:clientHeight}">
+    <div id="login" :style="{height:clientHeight}">
         <div class="box">
             <div class="item">
                 <div class="page-header">
@@ -13,7 +13,7 @@
                         <label class="col-sm-3 control-label">账号：</label>
                         <div class="col-sm-9">
                             <input type="text" v-validate="validator.username" name="username" class="form-control"
-                                   placeholder="请输入邮箱或手机">
+                                   placeholder="请输入邮箱或手机" v-model="formData.username">
                         </div>
                     </bootstrap-validator>
 
@@ -22,7 +22,7 @@
                         <label class="col-sm-3 control-label">密码：</label>
                         <div class="col-sm-9">
                             <input type="password" v-validate="validator.password" name="password"
-                                   class="form-control" placeholder="请输入密码">
+                                   class="form-control" placeholder="请输入密码" v-model="formData.password">
                         </div>
                     </bootstrap-validator>
                     <bootstrap-validator :validate="validator.yzm" :validateError="errors" inputName="yzm"
@@ -30,8 +30,8 @@
                         <label class="col-sm-3 control-label">验证码：</label>
                         <div class="yzm col-sm-9">
                             <input type="text" class="form-control" v-validate="validator.yzm" name="yzm"
-                                   placeholder="请输入验证码">
-                            <img src="/static/images/yzm.png" width="120" height="34" alt="">
+                                   placeholder="请输入验证码" v-model="formData.yzm">
+                            <image-code :width="120" :height="34"></image-code>
                         </div>
                     </bootstrap-validator>
 
@@ -49,8 +49,6 @@
 </template>
 
 <script>
-    import BootstrapValidator from '@/components/bootstrap_validator';
-
     export default {
         name: 'login',
         data() {
@@ -59,7 +57,11 @@
                 title: "后台管理系统",
                 // 2. 测量屏幕的高度，让背景铺满整个屏幕
                 clientHeight: '',
-                username: "chenjiawen",
+                formData: {
+                    username: '',
+                    password: '',
+                    yzm: ''
+                },
                 validator: {
                     username: {
                         rules: {required: true, email: true},
@@ -78,7 +80,8 @@
         },
         methods: {
             formSubmit() {
-                this.$router.push({path: '/index'})
+                console.log(this.$store.state.login, this.formData);
+                //this.$router.push({path: '/index'})
             }
         },
 
@@ -92,41 +95,40 @@
             window.onresize = function temp() {
                 that.clientHeight = `${document.documentElement.clientHeight}px`;
             };
-        },
-        components: {BootstrapValidator}
+        }
     }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
-    .login {
+    #login {
         background: url("/static/images/background.jpg") fixed center center no-repeat;
         background-size: cover;
-    }
 
-    .box {
-        height: 650px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-    }
-
-    .item {
-        width: 400px;
-    }
-
-    form {
-        .yzm {
+        .box {
+            height: 650px;
             display: flex;
-            img {
-                padding-left: 20px;
-                flex-shrink: 0;
-            }
+            justify-content: center;
+            align-items: center;
+
         }
-        button {
-            width: 100%;
-            margin-bottom: 20px;
+
+        .item {
+            width: 400px;
+        }
+
+        form {
+            .yzm {
+                display: flex;
+                img {
+                    padding-left: 20px;
+                    flex-shrink: 0;
+                }
+            }
+            button {
+                width: 100%;
+                margin-bottom: 20px;
+            }
         }
     }
 </style>

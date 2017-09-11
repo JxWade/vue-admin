@@ -14,8 +14,8 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
 // 字段验证
 import VeeValidate from 'vee-validate';
-
-
+// 引入全局自定义组件
+import '@/components/index'
 
 const config = {
     errorBagName: 'errors', // change if property conflicts.
@@ -23,10 +23,8 @@ const config = {
     messages: null,
     strict: true
 };
-Vue.use(VeeValidate,config);
-
-
-Vue.use(ElementUI)
+Vue.use(VeeValidate, config);
+Vue.use(ElementUI);
 
 Vue.config.productionTip = false;
 
@@ -35,7 +33,7 @@ router.beforeEach((to, from, next) => {
     NProgress.start();
     next();
     // 跳转到index页面
-    if(to.path == '/')
+    if (to.path == '/')
         next('/index');
 });
 
@@ -50,5 +48,7 @@ new Vue({
     router,
     store,
     template: '<App/>',
-    components: {App}
+    components: {
+        App
+    }
 });

@@ -4,6 +4,8 @@ import Vuex from 'vuex';
 import sidebarState from './state/sidebar'
 import sidebarGetters from './getters/sidebar'
 
+import login from './modules/login';
+
 Vue.use(Vuex);
 
 // 引入 Vuex
@@ -13,7 +15,9 @@ const store = new Vuex.Store({
         domain: 'localhost',
         sidebarState: sidebarState
     },
-    modules: {},
+    modules: {
+        login:login,
+    },
     getters: {
         ...sidebarGetters
     }
