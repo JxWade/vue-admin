@@ -19,6 +19,5 @@
                 this.imageSrc = `/static/api/yzm/${ Math.floor(Math.random() * 99 + 1)}.jpeg`
             }
         }
-
     }
 </script>

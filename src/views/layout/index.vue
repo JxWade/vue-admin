@@ -54,6 +54,8 @@
                 that.clientWidth = `${document.documentElement.clientWidth}`;
                 that.clientHeight = `${document.documentElement.clientHeight}`;
             };
+
+            this.$store.dispatch('user_get_info');
         },
         components: {
             PageSidebar,

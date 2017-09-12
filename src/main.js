@@ -17,12 +17,16 @@ import VeeValidate from 'vee-validate';
 // 引入全局自定义组件
 import '@/components/index'
 
+
+
+// 字段验证
 const config = {
     errorBagName: 'errors', // change if property conflicts.
     delay: 0,
     messages: null,
     strict: true
 };
+
 Vue.use(VeeValidate, config);
 Vue.use(ElementUI);
 
@@ -48,7 +52,5 @@ new Vue({
     router,
     store,
     template: '<App/>',
-    components: {
-        App
-    }
+    components: {App}
 });

@@ -1,26 +1,27 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import Env from '@/env'
+
 
 import sidebarState from './state/sidebar'
 import sidebarGetters from './getters/sidebar'
 
-import login from './modules/login';
+import user from './modules/user';
 
 Vue.use(Vuex);
 
 // 引入 Vuex
 const store = new Vuex.Store({
-    debug: true,
     state: {
-        domain: 'localhost',
-        sidebarState: sidebarState
+        debug: Env.debug,                                                       // 调试模式
+        sidebarState: sidebarState                                              // 侧边栏的配置信息
     },
     modules: {
-        login:login,
+        user:user,
     },
     getters: {
         ...sidebarGetters
-    }
+    },
 });
 
 export default store

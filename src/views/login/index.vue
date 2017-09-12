@@ -37,18 +37,25 @@
 
                     <div class="form-group">
                         <div class="col-sm-offset-3 col-sm-9">
-                            <button type="submit" class="btn btn-success" @click.prevent="formSubmit">
-                                <i class="el-icon-loading pull-left" style="position: relative;top:3px;left: 10px;"></i>登 录
+                            <button type="submit" :class="['btn btn-success',httpFlag?'disabled':'']"
+                                    @click.prevent="formSubmit">
+                                <i class="el-icon-loading pull-left" v-if="httpFlag"
+                                   style="position: relative;top:3px;left: 10px;"></i>登 录
                             </button>
                         </div>
                     </div>
                 </form>
+
+                <!--运行全局store中请求api时候的错误信息-->
+                <template v-if="errorMessage">{{ showError()}}</template>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+    import {mapState} from 'vuex'
+
     export default {
         name: 'login',
         data() {
@@ -75,16 +82,31 @@
                         rules: {required: true, min: 4, max: 4},
                         messages: {required: "请填写验证码", min: "请填写正确的验证码", max: "请填写正确的验证码"}
                     }
-                }
+                },
             }
+        },
+        computed: {
+            ...mapState({
+                //错误信息
+                errorMessage: state => state.user.errorMessage,
+                // 加载进度
+                httpFlag: state => state.user.httpFlag,
+            })
         },
         methods: {
             formSubmit() {
-                console.log(this.$store.state.login, this.formData);
-                //this.$router.push({path: '/index'})
+                // 防止多次提交
+                if (this.httpFlag) return;
+
+                // 提交请求
+                if (this.errors.items.length == 0) {
+                    this.$store.dispatch('user_login', this.formData)
+                }
+            },
+            showError() {
+                this.$message.error(this.errorMessage);
             }
         },
-
         mounted() {
             // 动态设置背景图的高度为浏览器可视区域高度
 
