@@ -6,14 +6,14 @@ import Env from '@/env'
 
 // 创建axios实例
 let http = axios.create({
-    baseURL: Env.serverBasicUrl,            // 设置请求基础路径
+    baseURL: Env.serverBasicUrl,                            // 设置请求基础路径
     timeout: 30000,
 });
 
 // request拦截器
 http.interceptors.request.use(function (config) {
     // Do something before request is sent
-    config.headers['X-Token'] = auth.getToken();     // 设置 token
+    config.headers['X-Token'] = auth.getToken();            // 设置 token
 
     return config;
 }, function (error) {
@@ -24,9 +24,11 @@ http.interceptors.request.use(function (config) {
 // respone拦截器
 http.interceptors.response.use(function (response) {
     // Do something with response data
-   if(response.data.ServerNo == 300){                       // 设置当响应码为300 时候，自动跳转到 登录页面
 
-       router.replace('/login');
+   if(response.data.ServerNo == 300){                       // 设置当响应码为300 时候，自动跳转到 登录页面
+       // auth.removeToken();                                  // 移除 token
+       console.log("无权限访问");
+       router.go(-1);
    }
 
     return response;

@@ -18,7 +18,6 @@ import VeeValidate from 'vee-validate';
 import '@/components/index'
 
 
-
 // 字段验证
 const config = {
     errorBagName: 'errors', // change if property conflicts.
@@ -35,10 +34,28 @@ Vue.config.productionTip = false;
 
 router.beforeEach((to, from, next) => {
     NProgress.start();
-    next();
+    // 如果是单页面的不需要进行权限验证，直接进入view
+    for (let item in router.options.routes) {
+        let path = router.options.routes[item].path;
+        path = path[0] == '/' ? path : '/' + path;
+
+        if ((path == to.path) && (to.path != '/')) {
+            next();
+            console.log(router.options.routes[item])
+            return;
+        }
+    }
+
     // 跳转到index页面
-    if (to.path == '/')
+    if (to.path == '/') {
         next('/index');
+        return;
+    }
+
+    //如果是复合页面，则需要加载用户，包括 用户的基本信息，用户的角色，用户的路由权限
+    store.dispatch('user_get_info', function () {
+        next();
+    });
 });
 
 router.afterEach(() => {

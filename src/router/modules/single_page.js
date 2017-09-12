@@ -6,4 +6,9 @@ export default [
         name: 'login',
         component: Login
     },
+    {
+        path: 'aa',
+        name: 'login',
+        component: Login
+    },
 ]

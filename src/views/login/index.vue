@@ -108,8 +108,6 @@
             }
         },
         mounted() {
-            // 动态设置背景图的高度为浏览器可视区域高度
-
             // 首先在Virtual DOM渲染数据时，设置下背景图的高度．
             this.clientHeight = `${document.documentElement.clientHeight}px`;
             // 然后监听window的resize事件．在浏览器窗口变化时再设置下背景图高度．
