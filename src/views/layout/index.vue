@@ -11,8 +11,10 @@
                 <!--页面的背景-->
                 <img src="/static/images/layout-background.jpg" alt="">
                 <!--页面的内容区域-->
-                <div :style="{width:clientWidth -200 +'px',height:clientHeight - 59 +'px',padding:'20px'}">
-                    <router-view></router-view>
+                <div :style="{width:clientWidth -  sidebarWidth +'px',height:clientHeight - 59 +'px',padding:'20px'}">
+                    <transition name="router-view-page">
+                        <router-view></router-view>
+                    </transition>
                 </div>
             </div>
         </div>
@@ -30,6 +32,11 @@
                 clientWidth: null,
                 clientHeight: null,
                 breadcrumbInfo: [0],
+            }
+        },
+        computed: {
+            sidebarWidth: function () {
+                return this.isCollapse ? 64 : 200;
             }
         },
         methods: {
@@ -88,6 +95,17 @@
                     position: relative;
                     z-index: 2;
                     overflow: scroll;
+                }
+
+                .router-view-page-enter-active {
+                    transition: all 1s;
+                }
+                .router-view-page-leave-active {
+                    display: none;
+                }
+                .router-view-page-enter, .router-view-page-leave-active {
+                    opacity: 0;
+                    transform: rotateX(90deg);
                 }
             }
         }

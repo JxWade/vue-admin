@@ -1,5 +1,5 @@
 <template>
-    <div class="hello">
+    <div id="index">
 
         <div class="panel panel-default">
             <div class="panel-body">
@@ -31,7 +31,7 @@
 
 <script>
     export default {
-        name: 'hello',
+        name: 'index',
         data() {
             return {
             }

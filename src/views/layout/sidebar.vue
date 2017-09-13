@@ -129,6 +129,8 @@
             opacity: 1;
         }
         .sidebar-title-leave-active {
+            transition: opacity 2s, width 3s;
+
         }
         .sidebar-title-enter, .sidebar-title-leave-active {
             opacity: 0;
