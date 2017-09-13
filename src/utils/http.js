@@ -27,8 +27,8 @@ http.interceptors.response.use(function (response) {
 
    if(response.data.ServerNo == 300){                       // 设置当响应码为300 时候，自动跳转到 登录页面
        // auth.removeToken();                                  // 移除 token
-       console.log("无权限访问");
-       router.go(-1);
+       Env.debug && console.log("无权限访问,并且直接跳转到登录页面");
+       router.push("/login");
    }
 
     return response;

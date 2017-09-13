@@ -33,7 +33,7 @@
                         <span><i class="fa fa-bell" aria-hidden="true"></i> messages &nbsp;&nbsp;&nbsp; <span
                                 class="badge">12</span></span>
                     </el-dropdown-item>
-                    <el-dropdown-item>
+                    <el-dropdown-item @click.native="logout">
                         <span><i class="fa fa-share" aria-hidden="true"></i> logout</span>
                     </el-dropdown-item>
                 </el-dropdown-menu>
@@ -77,7 +77,9 @@
             clickCollapse() {
                 this.$emit('changeCollapse', this.isCollapse)
             },
-
+            logout(){
+                this.$store.dispatch('user_logout');
+            }
         }
     }
 </script>

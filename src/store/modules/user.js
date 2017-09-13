@@ -95,7 +95,6 @@ export default {
                 (this.state.user.authority != undefined) &&
                 (auth.getToken() != undefined)
             ) {
-                console.log(111111);
                 callback();
                 return;
             }
@@ -130,7 +129,9 @@ export default {
          * @param commit
          */
         user_logout({commit}) {
+            auth.removeToken();
 
+            router.replace('/login');
         }
 
     }

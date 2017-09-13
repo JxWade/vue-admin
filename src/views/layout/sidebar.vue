@@ -3,7 +3,9 @@
         <h3 class="title-contain">
             <div>
                 <i :class="[sidebarHeader.icon]" aria-hidden="true"></i>
-                <span v-show="!isCollapse">{{ sidebarHeader.title }}</span>
+                <transition name="sidebar-title">
+                    <span v-show="!isCollapse">{{ sidebarHeader.title }}</span>
+                </transition>
             </div>
         </h3>
         <div :style="{height:clientHeight - 59 +'px',overflow:isCollapse ? 'visible':'scroll'}">
@@ -97,8 +99,8 @@
             routePush(url) {
                 this.$router.push(url);
             },
-            handleSelect(index){
-                this.$emit("getBreadcrumbInfo",index);
+            handleSelect(index) {
+                this.$emit("getBreadcrumbInfo", index);
             }
         }
     }
@@ -119,6 +121,18 @@
                 overflow: hidden;
                 white-space: nowrap;
             }
+        }
+        .sidebar-title-enter-active {
+            transition: opacity 2s, width 3s;
+            display: inline-block;
+            width: 0;
+            opacity: 1;
+        }
+        .sidebar-title-leave-active {
+        }
+        .sidebar-title-enter, .sidebar-title-leave-active {
+            opacity: 0;
+            width: 0;
         }
         & > div {
             .page-sidebar-nav {

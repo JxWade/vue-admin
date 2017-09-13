@@ -41,15 +41,15 @@ router.beforeEach((to, from, next) => {
 
         if ((path == to.path) && (to.path != '/')) {
             next();
-            console.log(router.options.routes[item])
             return;
         }
     }
 
     // 跳转到index页面
     if (to.path == '/') {
+        console.log('index');
         next('/index');
-        return;
+        return null;
     }
 
     //如果是复合页面，则需要加载用户，包括 用户的基本信息，用户的角色，用户的路由权限
