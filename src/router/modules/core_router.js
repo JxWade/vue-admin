@@ -1,6 +1,8 @@
 import fontAwesome from '@/views/core/font_awesome'
 import fontBootrap from '@/views/core/font_bootstrap'
 import fontElement from '@/views/core/font_element'
+import coreElement from '@/views/core/core_element'
+import coreBootstrap from '@/views/core/core_bootstrap'
 
 export default [
     {
@@ -15,5 +17,13 @@ export default [
         path: '/core/font/element',
         name: 'core-font-element',
         component: fontElement
+    },{
+        path: '/core/core/element',
+        name: 'core-core-element',
+        component: coreElement
+    },{
+        path: '/core/core/bootstrap',
+        name: 'core-core-bootstrap',
+        component: coreBootstrap
     },
 ]

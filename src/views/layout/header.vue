@@ -9,7 +9,7 @@
             <!--面包屑-->
             <div class="breadcrumb-container">
                 <ol class="breadcrumb">
-                    <li>{{ breadcrumbDetail[0].name }}</li>
+                    <li v-if="breadcrumbDetail[0] != undefined">{{ breadcrumbDetail[0].name }}</li>
                     <li v-if="breadcrumbDetail[1] != undefined">{{ breadcrumbDetail[1].name }}</li>
                     <li v-if="breadcrumbDetail[2] != undefined">{{ breadcrumbDetail[2].name }}</li>
                 </ol>
@@ -61,8 +61,9 @@
                 let sidebar = this.$store.state.sidebarState;
                 let breadcrumb = [];
 
-                breadcrumb[0] = sidebar[this.breadcrumbInfo[0]].title;
-
+                if (this.breadcrumbInfo[0] != undefined) {
+                    breadcrumb[0] = sidebar[this.breadcrumbInfo[0]].title;
+                }
                 if (this.breadcrumbInfo[2] != undefined) {
                     breadcrumb[1] = sidebar[this.breadcrumbInfo[0]].item_groups[this.breadcrumbInfo[1]].title;
                     breadcrumb[2] = sidebar[this.breadcrumbInfo[0]].item_groups[this.breadcrumbInfo[1]].items[this.breadcrumbInfo[2]];

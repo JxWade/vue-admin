@@ -31,7 +31,7 @@
                 isCollapse: false,
                 clientWidth: null,
                 clientHeight: null,
-                breadcrumbInfo: [0],
+                breadcrumbInfo: [],
             }
         },
         computed: {
@@ -48,8 +48,35 @@
             getBreadcrumbInfo(index) {
 
                 this.breadcrumbInfo = index.split("-");
-            }
+            },
+            initBreadcrumbInfo() {
+                let nowPath = this.$router.currentRoute.path;
+                let sidebar = this.$store.state.sidebarState;
 
+                for (let item in sidebar) {
+
+                    // 第一层 成员
+                    if (nowPath == sidebar[item].title.url) {
+                        this.breadcrumbInfo = [item];
+                    }
+
+                    // 第二层 成员
+                    for (let one in sidebar[item].items) {
+                        if (nowPath == sidebar[item].items[one].url) {
+                            this.breadcrumbInfo = [item, one];
+                        }
+                    }
+
+                    // 第三层 成员
+                    for (let one in sidebar[item].item_groups) {
+                        for (let key in sidebar[item].item_groups[one].items) {
+                            if (nowPath == sidebar[item].item_groups[one].items[key].url) {
+                                this.breadcrumbInfo = [item, one, key];
+                            }
+                        }
+                    }
+                }
+            }
         },
         mounted() {
             // 首先在Virtual DOM渲染数据时，设置窗口大小．
@@ -61,6 +88,8 @@
                 that.clientWidth = `${document.documentElement.clientWidth}`;
                 that.clientHeight = `${document.documentElement.clientHeight}`;
             };
+
+            this.initBreadcrumbInfo();
         },
         components: {
             PageSidebar,

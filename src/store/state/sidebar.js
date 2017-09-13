@@ -32,7 +32,7 @@ let sidebar = [
                         name: "font Awesome",
                         icon: '',
                         url: "/core/font/awesome"
-                    },{
+                    }, {
                         name: "bootstrap font",
                         icon: 'fa fa-bold',
                         url: "/core/font/bootstrap"
@@ -46,11 +46,11 @@ let sidebar = [
                 items: [
                     {
                         name: "element 全局样式",
-                        url: '/'
+                        url: '/core/core/element'
                     },
                     {
                         name: "bootstrap 样式",
-                        url: "/"
+                        url: "/core/core/bootstrap"
                     }
                 ],
             }
@@ -91,6 +91,5 @@ let sidebar = [
     }
 ];
 
-console.log(sidebar);
 
 export default sidebar;
