@@ -27,15 +27,15 @@ let sidebar = [
                 items: [
                     {
                         name: "element字体",
-                        url: '/'
+                        url: '/core/font/element'
                     }, {
                         name: "font Awesome",
                         icon: '',
-                        url: "/"
+                        url: "/core/font/awesome"
                     },{
                         name: "bootstrap font",
                         icon: 'fa fa-bold',
-                        url: "/"
+                        url: "/core/font/bootstrap"
                     }
                 ],
             }, {
@@ -91,5 +91,6 @@ let sidebar = [
     }
 ];
 
+console.log(sidebar);
 
 export default sidebar;
