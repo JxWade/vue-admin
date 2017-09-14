@@ -123,18 +123,21 @@
             }
         }
         .sidebar-title-enter-active {
-            transition: opacity 2s, width 3s;
+            transition: opacity .3s, width .3s;
             display: inline-block;
             width: 0;
             opacity: 1;
         }
         .sidebar-title-leave-active {
-            transition: opacity 2s, width 3s;
-
+            transition: opacity .3s, width .3s;
+            width: 0;
+            display: inline-block;
+            opacity: 1;
         }
         .sidebar-title-enter, .sidebar-title-leave-active {
             opacity: 0;
             width: 0;
+            display: inline-block;
         }
         & > div {
             .page-sidebar-nav {
